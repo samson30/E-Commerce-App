@@ -15,6 +15,7 @@ builder.Services.AddDbContext<StoreContext>(opt =>
 
 // Using add scoped makes sure for the lifetime of the service to be HTTP request level
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 var app = builder.Build();
 
